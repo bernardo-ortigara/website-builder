@@ -1,10 +1,10 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
 import { GuestLayout, AuthLayout } from './pages/Layout'
 import AuthPage from './pages/AuthPage'
 import PreviewPage from './pages/PreviewPage'
 import Homepage from './pages/HomePage'
 import BuilderPage from './pages/BuilderPage'
+import { Route, Routes, Navigate } from 'react-router-dom'
 
 const App = () => {
   return (
@@ -21,6 +21,9 @@ const App = () => {
         <Route path= '/builder/:id' element={<BuilderPage/>}/>
         <Route path= '/preview/:id' element={<PreviewPage/>}/>
       </Route>
+
+      {/* Catch All*/}
+      <Route path= '*' element={<Navigate to="/" replace/>} />
 
     </Routes>
   )
